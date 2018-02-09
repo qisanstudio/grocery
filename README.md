@@ -28,3 +28,5 @@ logging.critical("critical")
 logging.error("error")
 
 ```
+
+![本来是效果图](http://3-im.guokr.com/qmHPn2PCGZfwV30FDfZ740PhICTFfjRhyYsVfvHL-YB-AwAA6gAAAEpQ.jpg)
