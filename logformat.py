@@ -44,6 +44,24 @@ class ColorFormater(logging.Formatter):
         return s
 
 
+def get_color_file_logger(name,
+                          file_name='access.log',
+                          level=logging.DEBUG,
+                          fmt='%(levelname)-8s %(message)s'):
+    # define logger
+    logger = logging.getLogger(name)
+    # set logger level
+    logger.setLevel(logging.DEBUG)
+    # add file handler to logger
+    fh = logging.FileHandler(file_name)
+    # set format
+    formatter = ColorFormater(fmt)
+    fh.setFormatter(formatter)
+
+    logger.addHandler(fh)
+    return logger
+
+
 if __name__ == '__main__':
     # define logger
     logger = logging.getLogger(__name__)
