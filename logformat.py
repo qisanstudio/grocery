@@ -63,18 +63,7 @@ def get_color_file_logger(name,
 
 
 if __name__ == '__main__':
-    # define logger
-    logger = logging.getLogger(__name__)
-    # set logger level
-    logger.setLevel(logging.DEBUG)
-    # add file handler to logger
-    fh = logging.FileHandler('access.log')
-    fh.setLevel(logging.DEBUG)
-    # set format
-    formatter = ColorFormater('%(levelname)-8s %(message)s')
-    fh.setFormatter(formatter)
-
-    logger.addHandler(fh)
+    logger = get_color_file_logger(__name__)
 
     logger.debug("debug")
     logger.info("info")
