@@ -1,17 +1,9 @@
 ### logformat.py
 
 ```
-import logformat
+from logformat import get_color_file_logger
 
-logger = logging.getLogger(__name__)
-console = logging.StreamHandler()
-console.setLevel(logging.DEBUG)
-
-formatter = logformat.ColorFormater('%(levelname)-8s %(message)s')
-console.setFormatter(formatter)
-
-logger.addHandler(console)
-
+logger = get_color_file_logger(__name__)
 
 logger.debug("debug")
 logger.info("info")
