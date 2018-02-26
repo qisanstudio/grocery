@@ -40,7 +40,12 @@ cmd + y 历史页
 
 
 ## ATOM
-
+https://github.com/nwinkler/atom-keyboard-shortcuts
+cmd + r             Show Symbols Palette
+ctrl + alt + p      compare
+ctrl + shift + m    markdown view
+option + cmd + [    fold sections of code
+option + cmd + ]    unfold sections of code
 
 ## MAC
 cmd + h 隐藏当前应用
