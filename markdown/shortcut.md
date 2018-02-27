@@ -62,6 +62,9 @@
     option + cmd + }    unfold all sections of code
 
     cmd + option + Enter 调试跟踪代码
+    选中左侧文件夹 + a             add file
+    选中左侧文件夹 + shift + a     add folder
+
 
 ### MAC
     cmd + h 隐藏当前应用
