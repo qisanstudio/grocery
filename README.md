@@ -23,3 +23,52 @@ version 说明完成度 1.0可使用版
     1. 二八原理：先把那些经常用到的总结记录下来。不会的时候就来查。
     2. 总结规律原理，记录在脑海里，最好能分享出去。
     3. 有些东西如果做到了如指掌，就需要实现一次此工具。
+
+
+### TODO LIST
+
+#### Docker
+
+#### Guokrplus
+    验证码的实现
+
+#### Nginx
+
+#### Redis
+    继续梳理下Redis里面的key，看看还有哪些key需要加expire，以及可能造成内存泄露的key，尤其是list类型的。
+    ps: 定时更新待查询的：eg：每日排行榜/sitemap, 所有key应该都有过期时间
+
+#### Postgres
+    mapper
+    listener
+    另，为啥limit变成5000cpu就不行了，变成50就可以了呢？
+
+#### SQLAlchemy
+    alembic
+    views/mixins.py
+    db.undefer('current_user_has_supported')
+
+#### Atom
+
+#### VIM
+
+#### Python
+    isinstance(subdomain, (list, tuple, set))
+    reduce / filter / map + import operator filter(None, questions) 道理？
+    属性映射url的实现 group.member.get(limit=20) => /group/member?limit=20
+
+#### Flask
+
+#### Linux cmd - 搜索
+
+#### Linux cmd - 权限
+
+#### Linux cmd - 网络
+
+#### Linux cmd - 软件维护
+
+#### Linux cmd - 磁盘空间不足
+
+
+#### 扩展记录
+    AOP 编程思想

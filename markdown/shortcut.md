@@ -38,7 +38,6 @@
     cmd + w 关闭tag页
     cmd + y 历史页
 
-
 ### iTerm2
     ctrl + u        清空当前行
     cmd + shift + h 剪切板历史
