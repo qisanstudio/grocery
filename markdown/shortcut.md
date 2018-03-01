@@ -22,6 +22,7 @@
     z - undo
 
 ### VIM
+    列编辑 ctrl + v; shift + a;
     vim高亮字符串?
 
 ### chrome

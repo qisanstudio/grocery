@@ -27,37 +27,27 @@ version 说明完成度 1.0可使用版
 
 ### TODO LIST
 
-#### Docker
-
-#### Guokrplus
-    验证码的实现
-
-#### Nginx
-
 #### Redis
-    继续梳理下Redis里面的key，看看还有哪些key需要加expire，以及可能造成内存泄露的key，尤其是list类型的。
-    ps: 定时更新待查询的：eg：每日排行榜/sitemap, 所有key应该都有过期时间
-
-#### Postgres
-    mapper
-    listener
-    另，为啥limit变成5000cpu就不行了，变成50就可以了呢？
+    1. 继续梳理下Redis里面的key，看看还有哪些key需要加expire，以及可能造成内存泄露的key，尤其是list类型的。
+    2. ps: 定时更新待查询的：eg：每日排行榜/sitemap, 所有key应该都有过期时间
 
 #### SQLAlchemy
-    alembic
-    views/mixins.py
-    db.undefer('current_user_has_supported')
+    1. alembic
+    2. views/mixins.py
+    3. db.undefer('current_user_has_supported')
 
-#### Atom
+#### Docker
+    1. Docker 原理&总结
+    2. Docker 常用命令&操作
+    3. 一键搭建环境
 
-#### VIM
+#### Guokrplus
+    1. 验证码的实现
 
-#### Python
-    isinstance(subdomain, (list, tuple, set))
-    reduce / filter / map + import operator filter(None, questions) 道理？
-    属性映射url的实现 group.member.get(limit=20) => /group/member?limit=20
-
-#### Flask
+#### Postgres
+    1. mapper
+    2. listener
+    3. 另，为啥limit变成5000cpu就不行了，变成50就可以了呢？
 
 #### Linux cmd - 搜索
 
@@ -68,6 +58,21 @@ version 说明完成度 1.0可使用版
 #### Linux cmd - 软件维护
 
 #### Linux cmd - 磁盘空间不足
+
+#### Nginx
+    1. Nginx常用语法
+    2. 实战修改guokr Nginx配置
+
+#### Python
+    1. isinstance(subdomain, (list, tuple, set))
+    2. reduce / filter / map + import operator filter(None, questions) 道理？
+    3. 属性映射url的实现 group.member.get(limit=20) => /group/member?limit=20
+
+#### Atom
+
+#### VIM
+
+#### Flask
 
 
 #### 扩展记录
