@@ -3,6 +3,7 @@
 ### redis的一些操作
 #### generic
     1.
+    2.
 
 #### Strings
     1. GET操作：GET/GETRANGE/MGET
@@ -40,8 +41,20 @@
     5. 自动识别integer/float类型。对应操作：HINCRBY/HINCRBYFLOAT
     6. HSCAN
 
-### 主站的redis常用操作总结
+#### 关于过期时间的操作
+    1. TTL/EXPIRE/PEXPIRE、PERSIST、SETEX/PSETEX、EXPIREAT/PEXPIREAT
+    2. 会移除生存时间的操作： DEL/SET/GETSET
+    3. 只修改key或value不影响生存周期的操作：INCR/LPUSH/HSET/RENAME
 
+### 一些用到redis的需求汇总
+    1.
 
 
 ### redis高级应用 pub/sub 模式
+
+
+### 前人经验
+    1. 表达从属关系（一对多，多对多），最好用集合； 比如： 书名和标签，关注与被关注（微博粉丝关系）等等。
+    2. 求最近的，一般利用链表后入后出的特性。比如：最近N个登录的用户，可以维护一个登录的链表，控制他的长度，使得里面永远保存的是最近的N个登录用户。
+    3. 对于排序，积分榜这类需求，可以用有序集合，比如：我们把用户和登录次数统一存储在一个sorted set里，然后就可以求出登录次数最多用户。
+    4. 对于大数据量的非是即否关系，还可以通过位图（setbit）的方式，比如：1亿个用户, 每个用户 登陆/做任意操作,记为今天活跃,否则记为不活跃；（每天一个位图来记录，会员id就是位图的位置）；
