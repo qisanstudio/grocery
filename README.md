@@ -2,8 +2,10 @@
 
 ```
 from logformat import get_color_file_logger
-
 logger = get_color_file_logger(__name__)
+
+# from logformat import get_color_console_logger
+# logger = get_color_console_logger(__name__)
 
 logger.debug("debug")
 logger.info("info")

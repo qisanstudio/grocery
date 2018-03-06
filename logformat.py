@@ -62,8 +62,24 @@ def get_color_file_logger(name,
     return logger
 
 
+def get_color_console_logger(name):
+    # define logger
+    logger = logging.getLogger(name)
+    # set logger level
+    logger.setLevel(logging.DEBUG)
+    # add console handler to logger
+    console = logging.StreamHandler()
+    console.setLevel(logging.DEBUG)
+    # set format
+    formatter = ColorFormater('%(levelname)-8s %(message)s')
+    console.setFormatter(formatter)
+
+    logger.addHandler(console)
+    return logger
+
+
 if __name__ == '__main__':
-    logger = get_color_file_logger(__name__)
+    logger = get_color_console_logger(__name__)
 
     logger.debug("debug")
     logger.info("info")

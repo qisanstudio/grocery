@@ -1,5 +1,67 @@
 #### version 0.1
 
+### 思考
+#### 用redis都能缓冲什么？
+1. 服务器的外网请求，比如qiniu
+2. 数据库的数据
+
+#### 怎么定义冷热数据？
+
+#### 如何监控redis
+1. 大小
+2. 吞吐量
+
+#### 能带来多少性能的提升？
+
+#### 缓存高可用？
+
+
+### 果壳主站调研
+#### gkapp-censor
+1. 利用redis的过期时间做短时间禁言功能 TTL/SETEX
+2. user_context.py 用来做缓存的，没看明白
+
+#### gkapp-image
+1. 缓存qiniu的token GET/SET/EXPIRE (七牛的token也有过期时间，把redis key的过期设置的小一点，确保缓存的token可用)
+2. 用HASH结构来存储生成的图片信息，没有过期时间自己维护其大小。 HSET/HDEL/HGET
+
+#### gkapp-auth
+1. redis pipeline 操作 auth/models/token.py 多类型合作完成
+2. 重置密码申请操作 类似gkapp-censor.1
+3. 验证码的实现 auth/views/captcha.py
+4. 手机验证码的实现 借助 INCR/EXPIRE 实现频繁请求报错
+5. 白名单的实现 SET/GET/DELETE/KEYS
+6. 借助内存完成接口级别的信息传递，批量发信息用key作为锁 auth/backends/message.py SET/SETNX/DELETE/EXPIRE
+
+#### gkapp-handpick
+1. 大转盘 lottery.py
+2. 缓冲精选文章，不那么频繁更新的 HSET/HGETALL/EXPIRE
+
+#### gkapp-group
+1. hook.py 缓冲计数  EXISTS/INCR/SETEX
+2. 禁言 string类型
+3. models/user.py +134 使用错误
+
+#### gkapp-community
+1. 黑名单实现 sortedset    ZADD/EXPIRE/ZCARD/ZRANGE/ZREM/ZRANK
+2. activity缓存  sortedset    zrevrange/zremrangebyrank/expire/zcard/zadd/delete
+
+#### guokr-core
+1. 缓存网页，然后Response sitemaps.py
+2. 频率控制器    sortedset 按时间排序 一定间隔时间内统计次数
+3. session
+4. USER_META hash
+
+
+#### 管理redis大小
+1. 设置过期时间
+2. 先评估每种类型的大小，之后预估大小。比如：用户相关的统计，到达一定规模能很快计算出来他所占用空间
+3. 删除操作通常通过管道执行
+
+
+#### redis key 命名规则
+
+
 ### redis的一些操作
 #### generic
     1.
