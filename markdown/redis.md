@@ -1,11 +1,11 @@
-#### version 0.5.3
+#### version 0.5.4
 
 
 #### REDIS KEY 命名规则
 Redis key值是二进制安全的
 1. 太长会增加内存的消耗，查找成本会很高
 2. 太短也不要损失可读性
-3. 坚持一个模式。object-type:\id:field.words (comment:\1234:reply.to)
+3. 坚持一个模式。 `object-type:id:field.words (comment:1234:reply.to)`
 
 
 #### 用REDIS都做了些什么？
