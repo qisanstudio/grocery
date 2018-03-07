@@ -5,7 +5,7 @@
 Redis key值是二进制安全的
 1. 太长会增加内存的消耗，查找成本会很高
 2. 太短也不要损失可读性
-3. 坚持一个模式。object-type:id:field.words (comment:1234:reply.to)
+3. 坚持一个模式。object-type\:id\:field.words (comment\:1234\:reply.to)
 
 
 #### 用REDIS都做了些什么？
@@ -435,6 +435,7 @@ shared_redis.hset('realname_whitelist', target.ukey, 1)  # 恰当
 2. 内存宝贵，hash更省空间
 
 一些网上搜到的关于redis类型选择的经验总结:
+
     1. 表达从属关系（一对多，多对多），最好用集合； 比如： 书名和标签，关注与被关注（微博粉丝关系）等等。
     2. 求最近的，一般利用链表后入后出的特性。比如：最近N个登录的用户，可以维护一个登录的链表，控制他的长度，使得里面永远保存的是最近的N个登录用户。
     3. 对于排序，积分榜这类需求，可以用有序集合，比如：我们把用户和登录次数统一存储在一个sorted set里，然后就可以求出登录次数最多用户。
@@ -447,7 +448,7 @@ shared_redis.hset('realname_whitelist', target.ukey, 1)  # 恰当
 4. 删除操作通常通过管道执行，节省在网络延迟的时间。
 
 --------
-#二八原理redis操作再总结
+# 二八原理redis操作再总结
 
 ### redis的一些操作
 #### generic
