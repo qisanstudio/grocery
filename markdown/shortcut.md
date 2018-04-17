@@ -40,9 +40,10 @@
     cmd + y 历史页
 
 ### iTerm2
-    ctrl + u        清空当前行
-    cmd + shift + h 剪切板历史
-    cmd + Enter     全屏
+    ctrl + u            清空当前行
+    cmd + shift + h     剪切板历史
+    cmd + Enter         全屏
+    shift + cmd + Enter 窗口最大化
 
 ### tmux
     ctrl + b        激活控制台

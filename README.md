@@ -39,9 +39,10 @@ version 说明完成度 1.0可使用版
     3. db.undefer('current_user_has_supported')
 
 #### Docker
-    1. Docker 原理&总结
-    2. Docker 常用命令&操作
-    3. 一键搭建环境
+    1. 起源 & 进化 & 原理
+    2. 具体如何操作的？
+    3. 科学人如何应用的？
+    4. 未来如何跟进？
 
 #### Guokrplus
     1. 验证码的实现
@@ -60,6 +61,11 @@ version 说明完成度 1.0可使用版
 #### Linux cmd - 软件维护
 
 #### Linux cmd - 磁盘空间不足
+
+#### Linux cmd - 清除
+
+#### Linux cmd - 进程管理
+killall 进程名
 
 #### Nginx
     1. Nginx常用语法

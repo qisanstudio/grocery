@@ -12,6 +12,9 @@ type
 ## 辅助命令
 xargs
 grep
+    --include=*.py
+    --exclude=*.js
+    --exclude-dir=folder
 sed
 awk
 

@@ -14,6 +14,9 @@
 ##### 内存数据库
 1. Redis
 
+##### BUG LIST
+1. 有很多僵尸进程是关于数据库连接的
+2. redis 操作再总结 https://searchdatabase.techtarget.com.cn/7-21572/
 
 #### 操作系统
 ##### 虚拟化技术
@@ -37,5 +40,19 @@
 2. Mapper
 3. Listener
 
+##### SWAGGER
+1. 如何组织
+2. 如何维护
+
+#### 网站运维
+1. Varnish
+2. Nginx
+
 ##### Web框架
 1. Flask
+
+
+#### 编程语言
+
+##### BUG LIST
+1. 全局解释型锁 GIL 与 python 和 flask 线程安全
