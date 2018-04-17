@@ -17,6 +17,16 @@ logger.critical("critical")
 ![本来是效果图](http://3-im.guokr.com/auLjVuJNnb1w4_ByAvg5VLSDUws5yij151zwBGVSVBrcBAAAqQAAAFBO.png)
 
 
+### rw.py
+```
+# 读csv文件转成List
+csv_reader('input_filename.csv')
+
+# List转成csv文件
+csv_reader('output_filename.csv', rows=[('a', 1), ('b', 2)])
+```
+
+
 ### markdown文件夹
 一些技术点的专题总结
 version 说明完成度 1.0可使用版
