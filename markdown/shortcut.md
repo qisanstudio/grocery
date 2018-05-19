@@ -23,7 +23,7 @@
 
 ### VIM
     列编辑 ctrl + v; shift + a;
-    vim高亮字符串?
+    命令模式下 nyy 复制多行 p粘贴 P快速粘贴
 
 ### chrome
     cmd + d 收藏
