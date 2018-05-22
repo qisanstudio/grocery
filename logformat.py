@@ -51,7 +51,7 @@ def get_color_file_logger(name,
     # define logger
     logger = logging.getLogger(name)
     # set logger level
-    logger.setLevel(logging.DEBUG)
+    logger.setLevel(level)
     # add file handler to logger
     fh = logging.FileHandler(file_name)
     # set format
@@ -62,19 +62,39 @@ def get_color_file_logger(name,
     return logger
 
 
-def get_color_console_logger(name):
+def get_color_console_logger(name, level=logging.DEBUG):
     # define logger
     logger = logging.getLogger(name)
     # set logger level
-    logger.setLevel(logging.DEBUG)
+    logger.setLevel(level)
     # add console handler to logger
     console = logging.StreamHandler()
-    console.setLevel(logging.DEBUG)
+    console.setLevel(level)
     # set format
     formatter = ColorFormater('%(levelname)-8s %(message)s')
     console.setFormatter(formatter)
 
     logger.addHandler(console)
+    return logger
+
+
+def get_color_concurrent_logger(name,
+                                file_name='co_access.log',
+                                level=logging.DEBUG,
+                                fmt='%(message)s'):
+    ''' pip install ConcurrentLogHandler '''
+    from cloghandler import ConcurrentRotatingFileHandler
+    # define logger
+    logger = logging.getLogger(name)
+    # set logger level
+    logger.setLevel(level)
+    # add file handler to logger
+    fh = ConcurrentRotatingFileHandler(file_name)
+    # set format
+    formatter = ColorFormater(fmt)
+    fh.setFormatter(formatter)
+
+    logger.addHandler(fh)
     return logger
 
 
