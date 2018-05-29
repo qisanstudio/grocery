@@ -1,15 +1,22 @@
 import time
-import logging
 # import gevent
+import logging
 import multiprocessing
+# from gevent import monkey
 
 from logformat import get_color_concurrent_logger
 
+
+# monkey.patch_socket()
 
 logger = get_color_concurrent_logger('test_csv_format_log',
                                      file_name='test_csv_format_log.csv',
                                      level=logging.INFO,
                                      fmt='%(message)s')
+
+
+def remote(url):
+    pass
 
 
 def f(display):

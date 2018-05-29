@@ -4,7 +4,9 @@
 import re
 
 ### URL 正则
+VAR_PATTERN = r"var\s+(\w+).*=(.*);"
 URL_PATTERN = r"https?:\/\/(?:www\.)?[-a-zA-Z0-9@:%._\+~#=]{2,256}\.[a-z]{2,4}\b(?:[-a-zA-Z0-9@:%_\+.~#?&//=]*)"
+
 
 ### 字符串中提取数字
 re.findall("\d+", url)
