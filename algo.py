@@ -25,7 +25,7 @@ def token_bucket(ip, capacity, seconds):
         # 距上次补充令牌过了多少秒
         now = int(time.time())
         pass_second = now - bucket['timestamp_updated']
-        # 计算刷新的后令牌数
+        # 计算刷新后令牌数
         token_count_flushed = min(int(pass_second * rate) + bucket['token_count'],
                                   capacity)
         bucket['token_count'] = token_count_flushed
