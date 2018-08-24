@@ -71,5 +71,14 @@ def test_token_bucket():
     _test_token_bucket_by_gear(ip, HOUR_GEAR)
 
 
+def is_internal_ip(ip):
+    _ip = reduce(lambda x, y: (x << 8)+y, map(int, ip.split('.')))
+    print _ip, type(_ip)
+    return _ip >> 24 == 10 or _ip >> 20 == 2753 or _ip >> 16 == 49320
+
+
 if __name__ == '__main__':
-    test_token_bucket()
+    # test_token_bucket()
+    print is_internal_ip('192.168.0.1')
+    print is_internal_ip('10.2.0.1')
+    print is_internal_ip('172.16.1.1')
