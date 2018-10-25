@@ -7,19 +7,20 @@
 # 但是只能用递归函数来实现，不能借助此栈以外的数据结构。
 
 
-def get_and_remove_stack_element(stk):
+def get_and_remove_last_element(stk):
     result = stk.pop()
     if not stk:
         return result
     else:
-        last = get_and_remove_stack_element(stk)
+        last = get_and_remove_last_element(stk)
         stk.append(result)
         return last
+
 
 def reverse(stk):
     if not stk:
         return
-    i = get_and_remove_stack_element(stk)
+    i = get_and_remove_last_element(stk)
     reverse(stk)
     stk.append(i)
 
