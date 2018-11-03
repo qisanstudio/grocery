@@ -16,6 +16,12 @@ logger.critical("critical")
 
 ![本来是效果图](http://3-im.guokr.com/auLjVuJNnb1w4_ByAvg5VLSDUws5yij151zwBGVSVBrcBAAAqQAAAFBO.png)
 
+```
+# shortcut example
+clogger = get_color_file_logger('clogger', file_name='/var/log/zydebug.log')
+# use like
+from logformat import clogger
+```
 
 ### rw.py
 ```

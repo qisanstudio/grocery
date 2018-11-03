@@ -25,7 +25,7 @@ def f(display):
         logger.info('%s,%s' % (display, i))
 
 
-if __name__ == '__main__':
+def multi():
     pool = multiprocessing.Pool(processes=16)
 
     for disp in ['one', 'two', 'three', 'four'] * 40:
@@ -33,3 +33,7 @@ if __name__ == '__main__':
 
     pool.close()
     pool.join()
+
+
+if __name__ == '__main__':
+    multi()
