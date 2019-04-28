@@ -105,14 +105,27 @@ class ParseHOSTAPIJS(ParseAPIJS):
 
         return l
 
+    def get_urls(self):
+        l = []
+        apps = self.run()
+        for app in apps:
+            for func in app['funcs']:
+                l.append(func.get('func_url', ''))
+        return l
+
     def to_csv(self):
         writer = csv.writer(sys.stdout, delimiter=',')
-        writer.writerow(['app_name', 'func_name', 'func_url', 'func_cname', 'func_params'])
+        writer.writerow(['app_name', 'func_name', 'func_url', 'func_method', 'func_cname', 'func_params'])
         apps = self.run()
 
         for app in apps:
             for func in app['funcs']:
-                writer.writerow([app['app_name'], func['func_name'], func.get('func_url', ''), func['cn_name'], func.get('params', '')])
+                writer.writerow([app['app_name'],
+                                 func['func_name'],
+                                 func.get('func_url', ''),
+                                 func.get('func_method', ''),
+                                 func['cn_name'],
+                                 func.get('params', '')])
 
 
 class ParseBUNAPIJS(ParseAPIJS):
@@ -178,6 +191,13 @@ class ParseBUNAPIJS(ParseAPIJS):
 
         return l
 
+    def get_urls(self):
+        l = []
+        funcs = self.run()
+        for func in funcs:
+            l.append(func.get('func_url', ''))
+        return l
+
     def to_csv(self):
         writer = csv.writer(sys.stdout, delimiter=',')
         writer.writerow(['func_name', 'func_url', 'func_method', 'func_cname', 'func_params'])
@@ -206,8 +226,27 @@ def bun(branch):
     parser.to_csv()
 
 
+@click.command()
+@click.option('--branch', default='master')
+def merge(branch):
+    bun_resp = requests.get(BUN_URL_FORMAT.format(branch=branch), headers=HEADERS)
+    bun_parser = ParseBUNAPIJS(bun_resp.text)
+    bun_urls = bun_parser.get_urls()
+    bun_urls = [re.sub(r'\$\{.*?\}', '', url) for url in bun_urls]
+
+    host_resp = requests.get(HOST_URL_FORMAT.format(branch=branch), headers=HEADERS)
+    host_parser = ParseHOSTAPIJS(host_resp.text)
+    host_urls = host_parser.get_urls()
+    host_urls = [re.sub(r'\$\{.*?\}', '', url) for url in host_urls]
+
+    for url in bun_urls:
+        if url in host_urls:
+            print(url)
+
+
 cli.add_command(host)
 cli.add_command(bun)
+cli.add_command(merge)
 
 
 if __name__ == '__main__':
