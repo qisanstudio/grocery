@@ -7,23 +7,19 @@ from shutil import copyfile
 
 ORIGIN_SUFFIX = '.origin'
 
-# bin/postactivate file
-# python /root/.virtualenvs/venv/bin/map_replace.py replace /export/local /export/sure
-# bin/postdeactivate file
-# python /root/.virtualenvs/venv/bin/map_replace.py recover /export/sure
-
-
 
 def replace(source, target):
     assert os.path.isabs(source) and os.path.isdir(source)
     assert os.path.isabs(target) and os.path.isdir(target)
     for root, dirs, files in os.walk(source, topdown=False):
         for f in files:
-            if f.startswith('.'):
-                continue
             source_file_path = '%s/%s' % (root, f)
             target_file_path = source_file_path.replace(source, target, 1)
             target_origin_file_path = '%s%s' % (target_file_path, ORIGIN_SUFFIX)
+            # 如果不存在target_file 跳过
+            if not os.path.exists(target_file_path):
+                continue
+            # 没有.origin文件才创建.origin文件
             if not os.path.exists(target_origin_file_path):
                 copyfile(target_file_path, target_origin_file_path)
             copyfile(source_file_path, target_file_path)
@@ -51,3 +47,4 @@ if __name__ == '__main__':
         recover(sys.argv[2])
     else:
         print 'replace | recover'
+
